@@ -27,6 +27,7 @@ public class CatalogueValidator {
 		}
 		ColorValidator validateColorSheet = new ColorValidator(workbook.getSheet(Symbols.COLORS.toString()),log);
 		validateColorSheet.go();
+		
 	}
 	
 	public static void main (String [] args) throws Throwable {

@@ -14,7 +14,7 @@ public class SheetValidator {
 	char idstyle;
 	static ArrayList<String> id;
 	
-	public boolean isin(String st) {
+	public static boolean isin(String st) {
 		return id.contains(st);
 	}
 	
@@ -105,7 +105,7 @@ public class SheetValidator {
 		return true;
 	}
 
-	private String proceed(XSSFRow row,int x) {
+	public String proceed(XSSFRow row,int x) {
 		// TODO Auto-generated method stub
 		// check expert style
 		String st = row.getCell(8).toString();
