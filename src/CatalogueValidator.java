@@ -25,9 +25,17 @@ public class CatalogueValidator {
 			log.append("Wrong file type!\n");
 			return ;
 		}
+		
 		ColorValidator validateColorSheet = new ColorValidator(workbook.getSheet(Symbols.COLORS.toString()),log);
 		validateColorSheet.go();
+		RasterValidator validateRasterSheet = new RasterValidator(workbook.getSheet(Symbols.RASTERSYMBOLIZER.toString()),log);
+		validateRasterSheet.go();
 		
+		PointValidator validatePointSheet = new PointValidator(workbook.getSheet(Symbols.POINTSYMBOLIZER.toString()),log);
+		validatePointSheet.go();
+		LineValidator validateLineSheet = new LineValidator(workbook.getSheet(Symbols.LINESYMBOLIZER.toString()),log);
+		validateLineSheet.go();
+
 	}
 	
 	public static void main (String [] args) throws Throwable {

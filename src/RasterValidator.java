@@ -9,5 +9,6 @@ public class RasterValidator extends PointValidator {
 		super(sheet, log);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	
 }

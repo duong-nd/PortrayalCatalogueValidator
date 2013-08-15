@@ -12,7 +12,7 @@ public class SheetValidator {
 	XSSFSheet currentSheet;
 	JTextArea log;
 	char idstyle;
-	static ArrayList<String> id;
+	static ArrayList<String> id = new ArrayList<String>();
 	
 	public static boolean isin(String st) {
 		return id.contains(st);
@@ -100,7 +100,7 @@ public class SheetValidator {
 		int i = 0;
 		for (i = 0; i < row.getLastCellNum(); i ++ ) {
 			XSSFCell cell = row.getCell(i);
-			if (cell != null && cell.getCellType() != XSSFCell.CELL_TYPE_BLANK) return true;
+			if (cell != null && cell.getCellType() != XSSFCell.CELL_TYPE_BLANK) return false;
 		}
 		return true;
 	}

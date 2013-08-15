@@ -39,7 +39,8 @@ public class ColorValidator extends SheetValidator {
 			if (cell.contains(newline)) {
 				result.concat(String.format("Cell %d%s contains newline \n",x,IntToColIndex(y)));				
 			}
-		}		
+		}
+		if (result.equals("")) id.add(st);
 		return result;	
 	}
 	

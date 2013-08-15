@@ -12,4 +12,10 @@ public class TextValidator extends PointValidator {
 		// TODO Auto-generated constructor stub
 	}
 
+	public static void main (String [] args) {
+		String res = "aaa";
+		res.concat("afasfas");
+		res.concat(String.format("a new string %d",2));
+		System.out.println(res);
+	}
 }

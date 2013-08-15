@@ -8,7 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 
 public class PointValidator extends SheetValidator {
-	ArrayList<Integer> colorcell;
+	ArrayList<Integer> colorcell = new ArrayList<Integer>();
 	public PointValidator(XSSFSheet sheet, JTextArea log) {
 		super(sheet, log);
 		colorcell.add(15);
