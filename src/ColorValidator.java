@@ -22,22 +22,22 @@ public class ColorValidator extends SheetValidator {
 		String st = row.getCell(0).toString();
 		String result = "";
 		if (st.charAt(0) != idstyle) {
-			result.concat("Error at cell " +x +  "A ID must start with a \""+idstyle+"\"\n");
+			result = result.concat("Error at cell " +x +  "A ID must start with a \""+idstyle+"\"\n");
 		}
 		
 		if (id.contains(st)) {
-			result.concat("Error at cell " + x + "A ID already existed ! \n");
+			result = result.concat("Error at cell " + x + "A ID already existed ! \n");
 		}
 		
 		// checking if cell contains new line 
 		st = row.getCell(1).toString();
 		if (isRGB(st) == false) {
-			result.concat(String.format("Cell %d%s does not contains a valid RGB value \n",x,IntToColIndex(1)));
+			result = result.concat(String.format("Cell %d%s does not contains a valid RGB value \n",x,IntToColIndex(1)));
 		}
 		for (int y = 0; y < row.getLastCellNum(); y ++ ) {
 			String cell = row.getCell(y).toString();
 			if (cell.contains(newline)) {
-				result.concat(String.format("Cell %d%s contains newline \n",x,IntToColIndex(y)));				
+				result = result.concat(String.format("Cell %d%s contains newline \n",x,IntToColIndex(y)));				
 			}
 		}
 		if (result.equals("")) id.add(st);

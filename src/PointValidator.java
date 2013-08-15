@@ -28,7 +28,7 @@ public class PointValidator extends SheetValidator {
 				if (c == null ) continue;
 				String cell = c.toString();
 				if (cell.equals("") == false) {
-					result.concat(String.format("Error: Row %d has an expert style so others column must be empty.\n",x));
+					result = result.concat(String.format("Error: Row %d has an expert style so others column must be empty.\n",x));
 				}
 			}
 		}
@@ -36,11 +36,11 @@ public class PointValidator extends SheetValidator {
 		//checking id name
 		st = row.getCell(5).toString();
 		if (st.charAt(0) != idstyle) {
-			return ("Error: Row " + x + " ID must start with a \""+idstyle+"\"\n");
+			result = result.concat("Error: Row " + x + " ID must start with a \""+idstyle+"\"\n");
 		}
 		
 		if (id.contains(st)) {
-			return ("Error: Row " + x + " ID already existed ! \n");
+			result = result.concat("Error: Row " + x + " ID already existed ! \n");
 		}
 		
 		for (int i = 0; i < colorcell.size(); i ++) {
@@ -48,7 +48,7 @@ public class PointValidator extends SheetValidator {
 			if (c != null) {
 				st = c.toString();
 				if (!(ColorValidator.isRGB(st) || ColorValidator.isin(st))) {
-					result.concat(String.format("Error: Cell %d%s is not a valid color",x,IntToColIndex(colorcell.get(i))));
+					result = result.concat(String.format("Error: Cell %d%s is not a valid color",x,IntToColIndex(colorcell.get(i))));
 				}
 			}
 		}
@@ -59,7 +59,7 @@ public class PointValidator extends SheetValidator {
 		for (int y = 0; y < row.getLastCellNum(); y ++ ) {
 			String cell = row.getCell(y).toString();
 			if (cell.contains(newline)) {
-				return String.format("Error: Cell %d%s contains newline \n",x,IntToColIndex(y));
+				result = result.concat( String.format("Error: Cell %d%s contains newline \n",x,IntToColIndex(y)));
 			}
 		}
 		return result;
