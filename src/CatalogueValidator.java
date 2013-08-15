@@ -35,7 +35,12 @@ public class CatalogueValidator {
 		validatePointSheet.go();
 		LineValidator validateLineSheet = new LineValidator(workbook.getSheet(Symbols.LINESYMBOLIZER.toString()),log);
 		validateLineSheet.go();
-
+		
+		PolygonValidator validatePolygonSheet = new PolygonValidator(workbook.getSheet(Symbols.POLYGONSYMBOLIZER.toString()),log);
+		validatePolygonSheet.go();
+		TextValidator validateLineSheet = new TextValidator(workbook.getSheet(Symbols.TEXTSYMBOLIZER.toString()),log);
+		validateTextSheet.go();
+		
 	}
 	
 	public static void main (String [] args) throws Throwable {
